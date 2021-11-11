@@ -1,0 +1,352 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16157,        342]
+NotebookOptionsPosition[     15732,        325]
+NotebookOutlinePosition[     16144,        342]
+CellTagsIndexPosition[     16101,        339]
+WindowFrame->Palette*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`model$$ = Manipulate[
+     GraphicsRow[{
+       Show[
+        Plot[$CellContext`C0 
+         Exp[(-$CellContext`\[Gamma]) $CellContext`t + ($CellContext`T \
+$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+             E^((-$CellContext`\[Beta]) $CellContext`t) - \
+$CellContext`\[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
+         StringForm["Model=1,Error=``", 
+           
+           Mean[(Map[$CellContext`C0 
+               Exp[(-$CellContext`\[Gamma]) # + ($CellContext`T $CellContext`\
+\[Mu]/$CellContext`\[Beta]^2) (1 - 
+                   E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& , 
+               Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
+        Graphics[
+         Point[$CellContext`points]]], 
+       TextGrid[{{
+          Style["Model 1", 24], "model 1 description"}, {
+          Style["Initial parameters:", 18], SpanFromLeft}, {
+         "Rate of cell natural death(\[Gamma]):", 
+          StringForm[" `` 1/h", $CellContext`\[Gamma]]}, {
+         "Concentration of substance being tested(T):", 
+          StringForm[" ``", $CellContext`T]}, {
+          Style["Calculated parameters:", 18], SpanFromLeft}, {
+         "Metabolite deletion rate(\[Beta]):", 
+          StringForm[" ``", $CellContext`\[Beta]]}, {"hepatotoxicity(\[Mu]):", 
+          StringForm[" ``", $CellContext`\[Mu]]}}]}], {{$CellContext`\[Beta], 
+       0.1}, 0.1, 1, 0.1}, {{$CellContext`\[Mu], 3}, 0, 10, 0.1}, Paneled -> 
+     False, SaveDefinitions -> True], Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`model$$], {Manipulate[
+         GraphicsRow[{
+           Show[
+            
+            Plot[$CellContext`C0 
+             Exp[(-$CellContext`\[Gamma]) $CellContext`t + ($CellContext`T \
+$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+                 E^((-$CellContext`\[Beta]) $CellContext`t) - $CellContext`\
+\[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
+             StringForm["Model=1,Error=``", 
+               
+               Mean[(Map[$CellContext`C0 
+                   Exp[(-$CellContext`\[Gamma]) # + ($CellContext`T \
+$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+                    E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& \
+, 
+                   Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
+            Graphics[
+             Point[$CellContext`points]]], 
+           TextGrid[{{
+              Style["Model 1", 24], "model 1 description"}, {
+              Style["Initial parameters:", 18], SpanFromLeft}, {
+             "Rate of cell natural death(\[Gamma]):", 
+              StringForm[" `` 1/h", $CellContext`\[Gamma]]}, {
+             "Concentration of substance being tested(T):", 
+              StringForm[" ``", $CellContext`T]}, {
+              Style["Calculated parameters:", 18], SpanFromLeft}, {
+             "Metabolite deletion rate(\[Beta]):", 
+              StringForm[" ``", $CellContext`\[Beta]]}, {
+             "hepatotoxicity(\[Mu]):", 
+              StringForm[
+              " ``", $CellContext`\[Mu]]}}]}], {{$CellContext`\[Beta], 0.1}, 
+          0.1, 1, 0.1}, {{$CellContext`\[Mu], 3}, 0, 10, 0.1}, Paneled -> 
+         False, SaveDefinitions -> True] -> "model 1", Manipulate[
+         GraphicsRow[{
+           Show[
+            
+            Plot[$CellContext`C0 
+             Exp[(-($CellContext`\[Delta] $CellContext`T + $CellContext`\
+\[Gamma])) $CellContext`t + ($CellContext`T $CellContext`\[Mu]/$CellContext`\
+\[Beta]^2) (1 - 
+                 E^((-$CellContext`\[Beta]) $CellContext`t) - $CellContext`\
+\[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
+             StringForm["Model2,Error=``", 
+               
+               Mean[(Map[$CellContext`C0 
+                   Exp[(-($CellContext`\[Delta] $CellContext`T + \
+$CellContext`\[Gamma])) # + ($CellContext`T $CellContext`\[Mu]/$CellContext`\
+\[Beta]^2) (1 - E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& , 
+                   Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
+            Graphics[
+             Point[$CellContext`points]]], 
+           TextGrid[{{
+              Style["Model 2", 24], "model 2 description"}, {
+              Style["Initial parameters:", 18], SpanFromLeft}, {
+             "Rate of cell natural death(\[Gamma]):", 
+              StringForm[" `` 1/h", $CellContext`\[Gamma]]}, {
+             "Concentration of substance being tested(T):", 
+              StringForm[" ``", $CellContext`T]}, {
+              Style["calculated parameters:", 18], SpanFromLeft}, {
+             "Metabolite deletion rate(\[Beta]):", 
+              StringForm[" ``", $CellContext`\[Beta]]}, {
+             "hepatotoxicity(\[Mu]):", 
+              StringForm[" ``", $CellContext`\[Mu]]}, {
+             "rate of cell death(\[Delta])", 
+              StringForm[
+              " ``", $CellContext`\[Delta]]}}]}], {{$CellContext`\[Delta], 
+           0.1}, 0, 1, 0.1}, {{$CellContext`\[Beta], 0.1}, 0.1, 1, 
+          0.1}, {{$CellContext`\[Mu], 3}, 0, 10, 0.1}, Paneled -> False, 
+         SaveDefinitions -> True] -> "model 2", Manipulate[
+         GraphicsRow[{
+           Show[
+            
+            Plot[$CellContext`C0 
+             Exp[(-($CellContext`\[Delta] $CellContext`T + $CellContext`\
+\[Gamma])) $CellContext`t], {$CellContext`t, 0, 6}, PlotLabel -> 
+             StringForm["Model3 ,Error=``", 
+               
+               Mean[(Map[$CellContext`C0 
+                   Exp[(-($CellContext`\[Delta] $CellContext`T + \
+$CellContext`\[Gamma])) #]& , 
+                   Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
+            Graphics[
+             Point[$CellContext`points]]], 
+           TextGrid[{{
+              Style["Model 3", 24], "model 3 description"}, {
+              Style["Initial parameters:", 18], SpanFromLeft}, {
+             "Rate of cell natural death(\[Gamma]):", 
+              StringForm[" `` 1/h", $CellContext`\[Gamma]]}, {
+             "Concentration of substance being tested(T):", 
+              StringForm[" ``", $CellContext`T]}, {
+              Style["calculated parameters:", 18], SpanFromLeft}, {
+             "rate of cell death(\[Delta])", 
+              StringForm[
+              " ``", $CellContext`\[Delta]]}}]}], {{$CellContext`\[Delta], 
+           0.1}, 0, 1, 0.1}, Paneled -> False, SaveDefinitions -> True] -> 
+       "model 3"}}}, Typeset`size$$ = {620., {125., 131.}}, Typeset`update$$ =
+     0, Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`model$$ = Manipulate[
+          GraphicsRow[{
+            Show[
+             
+             Plot[$CellContext`C0 
+              Exp[(-$CellContext`\[Gamma]) $CellContext`t + ($CellContext`T \
+$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+                  E^((-$CellContext`\[Beta]) $CellContext`t) - $CellContext`\
+\[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
+              StringForm["Model=1,Error=``", 
+                
+                Mean[(Map[$CellContext`C0 
+                    Exp[(-$CellContext`\[Gamma]) # + ($CellContext`T \
+$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+                    E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& \
+, 
+                    Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
+             Graphics[
+              Point[$CellContext`points]]], 
+            TextGrid[{{
+               Style["Model 1", 24], "model 1 description"}, {
+               Style["Initial parameters:", 18], SpanFromLeft}, {
+              "Rate of cell natural death(\[Gamma]):", 
+               StringForm[" `` 1/h", $CellContext`\[Gamma]]}, {
+              "Concentration of substance being tested(T):", 
+               StringForm[" ``", $CellContext`T]}, {
+               Style["Calculated parameters:", 18], SpanFromLeft}, {
+              "Metabolite deletion rate(\[Beta]):", 
+               StringForm[" ``", $CellContext`\[Beta]]}, {
+              "hepatotoxicity(\[Mu]):", 
+               StringForm[
+               " ``", $CellContext`\[Mu]]}}]}], {{$CellContext`\[Beta], 0.1}, 
+           0.1, 1, 0.1}, {{$CellContext`\[Mu], 3}, 0, 10, 0.1}, Paneled -> 
+          False, SaveDefinitions -> True]}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`model$$, 
+      "Specifications" :> {{$CellContext`model$$, {Manipulate[
+            GraphicsRow[{
+              Show[
+               
+               Plot[$CellContext`C0 
+                Exp[(-$CellContext`\[Gamma]) $CellContext`t + ($CellContext`T \
+$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+                    E^((-$CellContext`\[Beta]) $CellContext`t) - \
+$CellContext`\[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
+                StringForm["Model=1,Error=``", 
+                  
+                  Mean[(Map[$CellContext`C0 
+                    Exp[(-$CellContext`\[Gamma]) # + ($CellContext`T \
+$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+                    E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& \
+, 
+                    Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
+               Graphics[
+                Point[$CellContext`points]]], 
+              TextGrid[{{
+                 Style["Model 1", 24], "model 1 description"}, {
+                 Style["Initial parameters:", 18], SpanFromLeft}, {
+                "Rate of cell natural death(\[Gamma]):", 
+                 StringForm[" `` 1/h", $CellContext`\[Gamma]]}, {
+                "Concentration of substance being tested(T):", 
+                 StringForm[" ``", $CellContext`T]}, {
+                 Style["Calculated parameters:", 18], SpanFromLeft}, {
+                "Metabolite deletion rate(\[Beta]):", 
+                 StringForm[" ``", $CellContext`\[Beta]]}, {
+                "hepatotoxicity(\[Mu]):", 
+                 StringForm[
+                 " ``", $CellContext`\[Mu]]}}]}], {{$CellContext`\[Beta], 
+              0.1}, 0.1, 1, 0.1}, {{$CellContext`\[Mu], 3}, 0, 10, 0.1}, 
+            Paneled -> False, SaveDefinitions -> True] -> "model 1", 
+          Manipulate[
+            GraphicsRow[{
+              Show[
+               
+               Plot[$CellContext`C0 
+                Exp[(-($CellContext`\[Delta] $CellContext`T + $CellContext`\
+\[Gamma])) $CellContext`t + ($CellContext`T $CellContext`\[Mu]/$CellContext`\
+\[Beta]^2) (1 - 
+                    E^((-$CellContext`\[Beta]) $CellContext`t) - \
+$CellContext`\[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
+                StringForm["Model2,Error=``", 
+                  
+                  Mean[(Map[$CellContext`C0 
+                    Exp[(-($CellContext`\[Delta] $CellContext`T + \
+$CellContext`\[Gamma])) # + ($CellContext`T $CellContext`\[Mu]/$CellContext`\
+\[Beta]^2) (1 - E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& , 
+                    Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
+               Graphics[
+                Point[$CellContext`points]]], 
+              TextGrid[{{
+                 Style["Model 2", 24], "model 2 description"}, {
+                 Style["Initial parameters:", 18], SpanFromLeft}, {
+                "Rate of cell natural death(\[Gamma]):", 
+                 StringForm[" `` 1/h", $CellContext`\[Gamma]]}, {
+                "Concentration of substance being tested(T):", 
+                 StringForm[" ``", $CellContext`T]}, {
+                 Style["calculated parameters:", 18], SpanFromLeft}, {
+                "Metabolite deletion rate(\[Beta]):", 
+                 StringForm[" ``", $CellContext`\[Beta]]}, {
+                "hepatotoxicity(\[Mu]):", 
+                 StringForm[" ``", $CellContext`\[Mu]]}, {
+                "rate of cell death(\[Delta])", 
+                 StringForm[
+                 " ``", $CellContext`\[Delta]]}}]}], {{$CellContext`\[Delta], 
+              0.1}, 0, 1, 0.1}, {{$CellContext`\[Beta], 0.1}, 0.1, 1, 
+             0.1}, {{$CellContext`\[Mu], 3}, 0, 10, 0.1}, Paneled -> False, 
+            SaveDefinitions -> True] -> "model 2", Manipulate[
+            GraphicsRow[{
+              Show[
+               
+               Plot[$CellContext`C0 
+                Exp[(-($CellContext`\[Delta] $CellContext`T + $CellContext`\
+\[Gamma])) $CellContext`t], {$CellContext`t, 0, 6}, PlotLabel -> 
+                StringForm["Model3 ,Error=``", 
+                  
+                  Mean[(Map[$CellContext`C0 
+                    Exp[(-($CellContext`\[Delta] $CellContext`T + \
+$CellContext`\[Gamma])) #]& , 
+                    Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
+               Graphics[
+                Point[$CellContext`points]]], 
+              TextGrid[{{
+                 Style["Model 3", 24], "model 3 description"}, {
+                 Style["Initial parameters:", 18], SpanFromLeft}, {
+                "Rate of cell natural death(\[Gamma]):", 
+                 StringForm[" `` 1/h", $CellContext`\[Gamma]]}, {
+                "Concentration of substance being tested(T):", 
+                 StringForm[" ``", $CellContext`T]}, {
+                 Style["calculated parameters:", 18], SpanFromLeft}, {
+                "rate of cell death(\[Delta])", 
+                 StringForm[
+                 " ``", $CellContext`\[Delta]]}}]}], {{$CellContext`\[Delta], 
+              0.1}, 0, 1, 0.1}, Paneled -> False, SaveDefinitions -> True] -> 
+          "model 3"}}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{663., {166., 172.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`C0 = 100, $CellContext`\[Gamma] = 
+       0.053, $CellContext`T = 
+       5., $CellContext`CAll = {
+        100, 100, 100, 94.2, 78.1, 56.9, 43.1, 32.8, 27, 16.1, 0, 0, 
+         0}, $CellContext`points = {{0., 100}, {0.5, 100}, {1., 100}, {1.5, 
+         94.2}, {2., 78.1}, {2.5, 56.9}, {3., 43.1}, {3.5, 32.8}, {4., 27}, {
+         4.5, 16.1}, {5., 0}, {5.5, 0}, {6., 0}}}; Typeset`initDone$$ = True),
+    
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]],
+ CellMargins->{{0, 0}, {0, 0}},
+ CellBracketOptions->{"Color"->RGBColor[0.269993, 0.308507, 0.6]},
+ CellHorizontalScrolling->True,
+ PageBreakAbove->True,
+ PageBreakWithin->False,
+ ShowAutoStyles->True,
+ LineSpacing->{1.25, 0},
+ AutoItalicWords->{},
+ ScriptMinSize->9,
+ ShowStringCharacters->False,
+ FontFamily:>CurrentValue["PanelFontFamily"],
+ FontSize:>CurrentValue[
+  "PanelFontSize"],ExpressionUUID->"062180dd-37e2-4483-a971-227875a040db"]
+},
+WindowSize->All,
+WindowMargins->{{361, Automatic}, {Automatic, 190}},
+WindowElements->{},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Palette.nb",
+ExpressionUUID->"24d34fd4-da41-4f94-9d43-d7728becf169"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[559, 20, 15169, 303, 340, InheritFromParent,ExpressionUUID->"062180dd-37e2-4483-a971-227875a040db",
+ PageBreakAbove->True,
+ PageBreakWithin->False]
+}
+]
+*)
+
+(* End of internal cache information *)
+
