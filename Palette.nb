@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     16157,        342]
-NotebookOptionsPosition[     15732,        325]
-NotebookOutlinePosition[     16144,        342]
-CellTagsIndexPosition[     16101,        339]
+NotebookDataLength[     16528,        350]
+NotebookOptionsPosition[     16064,        332]
+NotebookOutlinePosition[     16515,        350]
+CellTagsIndexPosition[     16472,        347]
 WindowFrame->Palette*)
 
 (* Beginning of Notebook Content *)
@@ -25,32 +25,38 @@ Cell[BoxData[
      GraphicsRow[{
        Show[
         Plot[$CellContext`C0 
-         Exp[(-$CellContext`\[Gamma]) $CellContext`t + ($CellContext`T \
-$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+         Exp[(-($CellContext`\[Delta] $CellContext`T + \
+$CellContext`\[Gamma])) $CellContext`t + ($CellContext`T \
+($CellContext`\[Mu]/$CellContext`\[Beta]^2)) (1 - 
              E^((-$CellContext`\[Beta]) $CellContext`t) - \
 $CellContext`\[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
-         StringForm["Model=1,Error=``", 
+         StringForm["Model2,Error=``", 
            
            Mean[(Map[$CellContext`C0 
-               Exp[(-$CellContext`\[Gamma]) # + ($CellContext`T $CellContext`\
-\[Mu]/$CellContext`\[Beta]^2) (1 - 
-                   E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& , 
+               Exp[(-($CellContext`\[Delta] $CellContext`T + $CellContext`\
+\[Gamma])) # + ($CellContext`T ($CellContext`\[Mu]/$CellContext`\[Beta]^2)) (
+                   1 - E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] \
+#)]& , 
                Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
         Graphics[
          Point[$CellContext`points]]], 
        TextGrid[{{
-          Style["Model 1", 24], "model 1 description"}, {
+          Style["Model 2", 24], "model 2 description"}, {
           Style["Initial parameters:", 18], SpanFromLeft}, {
          "Rate of cell natural death(\[Gamma]):", 
           StringForm[" `` 1/h", $CellContext`\[Gamma]]}, {
          "Concentration of substance being tested(T):", 
           StringForm[" ``", $CellContext`T]}, {
-          Style["Calculated parameters:", 18], SpanFromLeft}, {
+          Style["calculated parameters:", 18], SpanFromLeft}, {
          "Metabolite deletion rate(\[Beta]):", 
           StringForm[" ``", $CellContext`\[Beta]]}, {"hepatotoxicity(\[Mu]):", 
-          StringForm[" ``", $CellContext`\[Mu]]}}]}], {{$CellContext`\[Beta], 
-       0.1}, 0.1, 1, 0.1}, {{$CellContext`\[Mu], 3}, 0, 10, 0.1}, Paneled -> 
-     False, SaveDefinitions -> True], Typeset`show$$ = True, 
+          StringForm[" ``", $CellContext`\[Mu]]}, {
+         "rate of cell death(\[Delta])", 
+          StringForm[
+          " ``", $CellContext`\[Delta]]}}]}], {{$CellContext`\[Delta], 0.1}, 
+      0, 1, 0.1}, {{$CellContext`\[Beta], 0.1}, 0.1, 1, 
+      0.1}, {{$CellContext`\[Mu], 3}, 0, 10, 0.1}, Paneled -> False, 
+     SaveDefinitions -> True], Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
@@ -60,14 +66,14 @@ $CellContext`\[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel ->
             
             Plot[$CellContext`C0 
              Exp[(-$CellContext`\[Gamma]) $CellContext`t + ($CellContext`T \
-$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+($CellContext`\[Mu]/$CellContext`\[Beta]^2)) (1 - 
                  E^((-$CellContext`\[Beta]) $CellContext`t) - $CellContext`\
 \[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
              StringForm["Model=1,Error=``", 
                
                Mean[(Map[$CellContext`C0 
                    Exp[(-$CellContext`\[Gamma]) # + ($CellContext`T \
-$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+($CellContext`\[Mu]/$CellContext`\[Beta]^2)) (1 - 
                     E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& \
 , 
                    Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
@@ -93,16 +99,16 @@ $CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 -
             
             Plot[$CellContext`C0 
              Exp[(-($CellContext`\[Delta] $CellContext`T + $CellContext`\
-\[Gamma])) $CellContext`t + ($CellContext`T $CellContext`\[Mu]/$CellContext`\
-\[Beta]^2) (1 - 
+\[Gamma])) $CellContext`t + ($CellContext`T ($CellContext`\[Mu]/$CellContext`\
+\[Beta]^2)) (1 - 
                  E^((-$CellContext`\[Beta]) $CellContext`t) - $CellContext`\
 \[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
              StringForm["Model2,Error=``", 
                
                Mean[(Map[$CellContext`C0 
                    Exp[(-($CellContext`\[Delta] $CellContext`T + \
-$CellContext`\[Gamma])) # + ($CellContext`T $CellContext`\[Mu]/$CellContext`\
-\[Beta]^2) (1 - E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& , 
+$CellContext`\[Gamma])) # + ($CellContext`T ($CellContext`\[Mu]/$CellContext`\
+\[Beta]^2)) (1 - E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& , 
                    Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
             Graphics[
              Point[$CellContext`points]]], 
@@ -150,7 +156,7 @@ $CellContext`\[Gamma])) #]& ,
               StringForm[
               " ``", $CellContext`\[Delta]]}}]}], {{$CellContext`\[Delta], 
            0.1}, 0, 1, 0.1}, Paneled -> False, SaveDefinitions -> True] -> 
-       "model 3"}}}, Typeset`size$$ = {620., {125., 131.}}, Typeset`update$$ =
+       "model 3"}}}, Typeset`size$$ = {620., {147., 152.}}, Typeset`update$$ =
      0, Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`model$$ = Manipulate[
@@ -159,14 +165,14 @@ $CellContext`\[Gamma])) #]& ,
              
              Plot[$CellContext`C0 
               Exp[(-$CellContext`\[Gamma]) $CellContext`t + ($CellContext`T \
-$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+($CellContext`\[Mu]/$CellContext`\[Beta]^2)) (1 - 
                   E^((-$CellContext`\[Beta]) $CellContext`t) - $CellContext`\
 \[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
               StringForm["Model=1,Error=``", 
                 
                 Mean[(Map[$CellContext`C0 
                     Exp[(-$CellContext`\[Gamma]) # + ($CellContext`T \
-$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+($CellContext`\[Mu]/$CellContext`\[Beta]^2)) (1 - 
                     E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& \
 , 
                     Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
@@ -198,14 +204,14 @@ $CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 -
                
                Plot[$CellContext`C0 
                 Exp[(-$CellContext`\[Gamma]) $CellContext`t + ($CellContext`T \
-$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+($CellContext`\[Mu]/$CellContext`\[Beta]^2)) (1 - 
                     E^((-$CellContext`\[Beta]) $CellContext`t) - \
 $CellContext`\[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
                 StringForm["Model=1,Error=``", 
                   
                   Mean[(Map[$CellContext`C0 
                     Exp[(-$CellContext`\[Gamma]) # + ($CellContext`T \
-$CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 - 
+($CellContext`\[Mu]/$CellContext`\[Beta]^2)) (1 - 
                     E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& \
 , 
                     Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
@@ -232,16 +238,16 @@ $CellContext`\[Mu]/$CellContext`\[Beta]^2) (1 -
                
                Plot[$CellContext`C0 
                 Exp[(-($CellContext`\[Delta] $CellContext`T + $CellContext`\
-\[Gamma])) $CellContext`t + ($CellContext`T $CellContext`\[Mu]/$CellContext`\
-\[Beta]^2) (1 - 
+\[Gamma])) $CellContext`t + ($CellContext`T ($CellContext`\[Mu]/$CellContext`\
+\[Beta]^2)) (1 - 
                     E^((-$CellContext`\[Beta]) $CellContext`t) - \
 $CellContext`\[Beta] $CellContext`t)], {$CellContext`t, 0, 6}, PlotLabel -> 
                 StringForm["Model2,Error=``", 
                   
                   Mean[(Map[$CellContext`C0 
                     Exp[(-($CellContext`\[Delta] $CellContext`T + \
-$CellContext`\[Gamma])) # + ($CellContext`T $CellContext`\[Mu]/$CellContext`\
-\[Beta]^2) (1 - E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& , 
+$CellContext`\[Gamma])) # + ($CellContext`T ($CellContext`\[Mu]/$CellContext`\
+\[Beta]^2)) (1 - E^((-$CellContext`\[Beta]) #) - $CellContext`\[Beta] #)]& , 
                     Range[0, 6, 0.5]] - $CellContext`CAll)^2]]], 
                Graphics[
                 Point[$CellContext`points]]], 
@@ -290,7 +296,7 @@ $CellContext`\[Gamma])) #]& ,
                  " ``", $CellContext`\[Delta]]}}]}], {{$CellContext`\[Delta], 
               0.1}, 0, 1, 0.1}, Paneled -> False, SaveDefinitions -> True] -> 
           "model 3"}}}, "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{663., {166., 172.}},
+     ImageSizeCache->{663., {187., 193.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -314,6 +320,7 @@ $CellContext`\[Gamma])) #]& ,
  CellHorizontalScrolling->True,
  PageBreakAbove->True,
  PageBreakWithin->False,
+ CellChangeTimes->{{3.845721263210037*^9, 3.845721264331266*^9}},
  ShowAutoStyles->True,
  LineSpacing->{1.25, 0},
  AutoItalicWords->{},
@@ -324,8 +331,9 @@ $CellContext`\[Gamma])) #]& ,
   "PanelFontSize"],ExpressionUUID->"062180dd-37e2-4483-a971-227875a040db"]
 },
 WindowSize->All,
-WindowMargins->{{361, Automatic}, {Automatic, 190}},
+WindowMargins->{{Automatic, 216}, {Automatic, 93}},
 WindowElements->{},
+TaggingRules->{"TryRealOnly" -> False},
 FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
 StyleDefinitions->"Palette.nb",
 ExpressionUUID->"24d34fd4-da41-4f94-9d43-d7728becf169"
@@ -341,12 +349,10 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[559, 20, 15169, 303, 340, InheritFromParent,ExpressionUUID->"062180dd-37e2-4483-a971-227875a040db",
+Cell[559, 20, 15501, 310, 382, InheritFromParent,ExpressionUUID->"062180dd-37e2-4483-a971-227875a040db",
  PageBreakAbove->True,
  PageBreakWithin->False]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
