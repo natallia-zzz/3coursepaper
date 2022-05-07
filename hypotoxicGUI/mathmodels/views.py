@@ -28,10 +28,11 @@ def model1(request):
                                          'gamma': data['gamma'], 'tt':data['T']/1000})
 
 def model2(request):
-    return render(request,'model2.html',{'data' :  data['Cexp']})
-
+    return render(request, 'model2.html', {'t': list(np.linspace(0, 6, 13)), 'ct': list(data['Cexp']),
+                                           'gamma': data['gamma'], 'tt': data['T'] / 1000})
 def model3(request):
-    return render(request,'model3.html',{'data' :  data['Cexp']})
+    return render(request, 'model3.html', {'t': list(np.linspace(0, 6, 13)), 'ct': list(data['Cexp']),
+                                           'gamma': data['gamma'], 'tt': data['T'] / 1000})
 
 
 
