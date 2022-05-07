@@ -33,7 +33,7 @@ ydata = [i/100 for i in data]
 #popt, pcov = curve_fit(func, x_data, ydata, p0 = [0.0469,0.185], bounds = ([0.01,0.1],[0.1,0.7]))
 #popt, pcov = curve_fit(func, x_data, ydata, bounds = ([0.01,0.1],[0.1,0.7]),method = 'trf',loss = 'huber')
 # popt, pcov = curve_fit(func, x_data, ydata,p0 = [0.0469,0.185], bounds = ([0.01,0.1],[0.1,0.7]), method = 'trf', tr_solver = 'lsmr',)
-popt, pcov = curve_fit(func, x_data, ydata,p0 = [0.0469,0.185], bounds = ([0.01,0.1],[0.1,0.7]),method = 'trf', loss = 'huber', gtol = 1e-10, tr_solver = 'lsmr',)
+popt, pcov = curve_fit(func, x_data, ydata,p0 = [0.0469,0.185], bounds = ([0.01,0.1],[0.1,0.7]),method = 'trf', loss = 'huber', ftol = 1e-10, tr_solver = 'lsmr',)
 
 
 print('fit: mu=%5.3f, beta=%5.3f' % tuple(popt))

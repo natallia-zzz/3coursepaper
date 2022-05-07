@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homepage</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<header class="page-header bg-light">
+        <div class="container-fluid ">
+            <nav class="navbar navbar-expand-sm bg-light justify-content">
+                <div class="container-fluid">
+                    </form>
+                          <ul class="navbar-nav mr-auto navbar-left" >
+                          <li >
+                            <a class="nav-link" href="{% url 'model1' %}">Model 1</a>
+                          </li>
+                          <li >
+                            <a class="nav-link" href="{% url 'model2' %}">Model 2</a>
+                          </li>
+                          <li >
+                             <a class="nav-link" href="{% url 'model3'%}">Model 3</a>
+                          </li>
+                          </ul>
+                </div>
+            </nav>
+          </div>
+    </header>
+<main>
+<h1>Graph</h1>
+<div class="container-fluid">
+   {% block content %}
+       <div class = "row">
+            <div class = "col-6">
+    <canvas id="myChart" width="200px" height="100px"></canvas>
+
+            <script>
+
+            new Chart("myChart", {
+              type: "scatter",
+              data: {
+                datasets: [{
+                  pointRadius: 4,
+                  pointBackgroundColor: "rgb(0,0,255)",
+                  data: {{ data|safe }}
+                }]
+              },
+              options: {
+                legend: {display: false},
+                scales: {
+                  xAxes: [{ticks: {min: 0, max:6}}],
+                  yAxes: [{ticks: {min: 0, max:1}}],
+                }
+              }
+            });
+            </script>
+            </div>
+       <div class="col-6">
+           <p>Тhis is the imported data. Click on a Model to approximate it with a function.</p>
+       </div>
+       </div>
+    {% endblock %}
+</div>
+</main>
+</body>
+</html>
