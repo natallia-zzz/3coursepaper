@@ -2,67 +2,95 @@
 {% block content %}
   <div class = "row">
             <div class = "col-6">
-                <canvas id="myChart" width="200px" height="100px"></canvas>
-                <div class="slidecontainer">
-                    <input type="range" min="0.1" max="1" value="0.4" class="slider" step="0.01" id="beta">
+                <div id="myChart" width="200px" height="100px"></div>
+                    <div class="slidecontainer">
+                        <input type="range" min="0.1" max="1" value="0.4" class="slider" step="0.01" id="beta">
+                    </div>
+                    <div class="slidecontainer">
+                        <input type="range" min="0.1" max="1" value="0.4" class="slider" step="0.01" id="mu">
+                    </div>
                 </div>
-                <div class="slidecontainer">
-                    <input type="range" min="0.1" max="1" value="0.4" class="slider" step="0.01" id="mu">
-                </div>
-                <script>
+           <div class="col-6">
+               <h2>Model1</h2>
+               <p>test substance is not toxic, metabolite is toxic</p>
+               <h4>Initial parameters</h4>
+               <p>Rate of cell natural death: {{ gamma|safe }}</p>
+               <p>Concentration of substance being tested: {{ tt|safe }}</p>
+               <h4>Estimated parameters</h4>
+               <p>
+                   Metabolite deletion rate: <span id="betatext"></span>
+               </p>
+               <p>
+                   Hepatoxicity: <span id="mutext"></span>
+               </p>
 
-                    new Chart("myChart", {
-                      type: "scatter",
-                      data: {
-                        datasets: [{
-                          pointRadius: 4,
-                          pointBackgroundColor: "rgb(0,0,255)",
-                          data: {{ data|safe }}
-                        }]
-                      },
-                      options: {
-                        legend: {display: false},
-                        scales: {
-                          xAxes: [{ticks: {min: 0, max:6}}],
-                          yAxes: [{ticks: {min: 0, max:1}}],
-                        }
-                      }
-                    });
-                </script>
-            </div>
-       <div class="col-6">
-           <h2>Model1</h2>
-           <p>test substance is not toxic, metabolite is</p>
-           <h4>Initial parameters</h4>
-           <p>Rate of cell natural death: {{ gamma|safe }}</p>
-           <p>Concentration of substance being tested: {{ tt|safe }}</p>
-           <h4>Estimated parameters</h4>
-           <p>
-               Metabolite deletion rate: <span id="betatext"></span>
-           </p>
-           <p>
-               Hepatoxicity: <span id="mutext"></span>
-           </p>
-           <script>
-            var slider = document.getElementById("beta");
-            var output = document.getElementById("betatext");
-            output.innerHTML = slider.value;
-
-            slider.oninput = function() {
-              output.innerHTML = this.value;
-
-            }
-            </script>
-           <script>
-            var slider = document.getElementById("mu");
-            var output = document.getElementById("mutext");
-            output.innerHTML = slider.value;
-
-            slider.oninput = function() {
-              output.innerHTML = this.value;
-            }
-            </script>
        </div>
   </div>
+<script>
+       let sliderb = document.getElementById("beta");
+       let outputb = document.getElementById("betatext");
+       outputb.innerHTML = sliderb.value;
+       let sliderm = document.getElementById("mu");
+       let outputm = document.getElementById("mutext");
+       outputm.innerHTML = sliderm.value;
+       const yValues = [];
+       let exp2 = "100 * Math.exp(-"+ ({{ gamma|safe }}).toString() +"*x + "+
+           ({{ tt|safe }}*sliderm.value/(sliderb.value*sliderb.value)).toString() + "*(1-Math.exp(" +
+       (-sliderb.value).toString()+"*x)"+(-sliderb.value).toString()+"*x))"
+       console.log(exp2)
+       for (var x = 0; x <= 6; x += 0.5) {
+           yValues.push(eval(exp2));
+       }
+       var data = [
+           {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter"},
+           {x:{{ t|safe }}, y: yValues, mode:"lines"},
+       ];
+       var layout = {
+           xaxis: {range: [0, 6], title: "Time"},
+           yaxis: {range: [0, 100], title: "Concentration"},
+           title: "C(t)"
+       };
+       Plotly.newPlot("myChart", data, layout);
 
+       sliderb.oninput = function() {
+           outputb.innerHTML = this.value;
+           let yValuesb = []
+           let exp2 = "100 * Math.exp(-"+ ({{ gamma|safe }}).toString() +"*x + "+
+           ({{ tt|safe }}*sliderm.value/(this.value*this.value)).toString() + "*(1-Math.exp(" +
+           (-this.value).toString()+"*x)"+(-this.value).toString()+"*x))"
+           for (var x = 0; x <= 6; x += 0.5) {
+               yValuesb.push(eval(exp2));
+           }
+           var data = [
+               {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter"},
+               {x:{{ t|safe }}, y: yValuesb, mode:"lines"},
+           ];
+           var layout = {
+               xaxis: {range: [0, 6], title: "Time"},
+               yaxis: {range: [0, 100], title: "Concentration"},
+               title: "C(t)"
+           };
+           Plotly.newPlot("myChart", data, layout);
+           }
+       sliderm.oninput = function() {
+           outputm.innerHTML = this.value;
+           let yValuesm = []
+           let exp2 = "100 * Math.exp(-"+ ({{ gamma|safe }}).toString() +"*x + "+
+           ({{ tt|safe }}*this.value/(sliderb.value*sliderb.value)).toString() + "*(1-Math.exp(" +
+           (-sliderb.value).toString()+"*x)"+(-sliderb.value).toString()+"*x))"
+           for (var x = 0; x <= 6; x += 0.5) {
+               yValuesm.push(eval(exp2));
+           }
+           var data = [
+               {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter"},
+               {x:{{ t|safe }}, y: yValuesm, mode:"lines"},
+           ];
+           var layout = {
+               xaxis: {range: [0, 6], title: "Time"},
+               yaxis: {range: [0, 100], title: "Concentration"},
+               title: "C(t)"
+           };
+           Plotly.newPlot("myChart", data, layout);
+       }
+   </script>
 {% endblock %}

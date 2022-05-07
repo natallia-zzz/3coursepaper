@@ -24,7 +24,8 @@ def index(request):
     return render(request,'index.html',{'data' : coords })
 
 def model1(request):
-    return render(request,'model1.html',{'data' :  coords, 'gamma': data['gamma'], 'tt':data['T']})
+    return render(request,'model1.html',{'t' : list(np.linspace(0, 6, 13)), 'ct' :  list(data['Cexp']),
+                                         'gamma': data['gamma'], 'tt':data['T']/1000})
 
 def model2(request):
     return render(request,'model2.html',{'data' :  data['Cexp']})
