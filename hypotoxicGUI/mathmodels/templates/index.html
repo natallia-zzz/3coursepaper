@@ -12,9 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.12.0/plotly.min.js"
             integrity="sha512-S43+iQjoc+G8bFvEORq3Sqp0eCbPImBtZP25oTDYohpB6mOZB4Hgk9HNEW5qpbM97q15r1Z5StlfmM9oyZ7PSA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
-              integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-              crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .slidecontainer {
@@ -59,12 +56,11 @@
 
             <nav class="navbar navbar-expand-sm bg-light justify-content">
                 <div class="navbar-header">
-                    <a class="nav-link" href="{% url 'index' %}"><i class="fa-solid fa-house-blank"></i>Home</a>
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
                 </div>
                 <div class="container-fluid">
                     </form>
-                          <ul class="navbar-nav mr-auto navbar-left" >
-                              <li><a class="nav-link" href="{% url 'index' %}"><i class="fa-solid fa-house-blank"></i></a></li>
+                      <ul class="navbar-nav mr-auto navbar-left" >
                           <li >
                             <a class="nav-link" href="{% url 'model1' %}">Model 1</a>
                           </li>
@@ -74,7 +70,7 @@
                           <li >
                              <a class="nav-link" href="{% url 'model3'%}">Model 3</a>
                           </li>
-                          </ul>
+                      </ul>
                 </div>
             </nav>
           </div>

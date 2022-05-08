@@ -1,10 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 import json
-import matplotlib.pyplot as plt
 import numpy as np
-import io
-import urllib, base64
+
 # Create your views here.
 
 def extract_file_data(path):
