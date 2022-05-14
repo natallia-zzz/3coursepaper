@@ -3,29 +3,18 @@
   <div class = "row">
             <div class = "col-6">
                 <div id="myChart" width="200px" height="100px"></div>
+
                     <div class="slidecontainer">
-                        <input type="range" min="0.1" max="1" value="0.4" class="slider" step="0.01" id="beta">&beta;
-                    </div>
-                    <div class="slidecontainer">
-                        <input type="range" min="0.1" max="1" value="0.4" class="slider" step="0.01" id="mu">&mu;
-                    </div>
-                    <div class="slidecontainer">
-                        <input type="range" min="0.1" max="1" value="0.4" class="slider" step="0.01" id="delta">&delta;
+                        <input type="range" min="0.01" max="1" value="0.4" class="slider" step="0.001" id="delta">&delta;
                     </div>
                 </div>
            <div class="col-6">
-               <h2>Model2</h2>
-               <p>test substance and  metabolite are toxic</p>
+               <h2>Model3</h2>
+               <p>test substance is toxic, metabolite is not</p>
                <h4>Initial parameters</h4>
                <p>Rate of cell natural death: {{ gamma|safe }}</p>
                <p>Concentration of substance being tested: {{ tt|safe }}</p>
                <h4>Estimated parameters</h4>
-               <p>
-                   Metabolite deletion rate(&beta;): <span id="betatext"></span>
-               </p>
-               <p>
-                   Hepatoxicity(&mu;): <span id="mutext"></span>
-               </p>
                <p>
                    Rate of cell death(&delta;): <span id="deltatext"></span>
                </p>
@@ -33,18 +22,11 @@
        </div>
   </div>
 <script>
-       let sliderb = document.getElementById("beta");
-       let outputb = document.getElementById("betatext");
-       outputb.innerHTML = sliderb.value;
-       let sliderm = document.getElementById("mu");
-       let outputm = document.getElementById("mutext");
-       outputm.innerHTML = sliderm.value;
+
        let sliderd = document.getElementById("delta");
        let outputd = document.getElementById("deltatext");
        outputd.innerHTML = sliderd.value;
-       let exp2 = "100 * Math.exp(-"+ ({{ gamma|safe }}+ {{ tt|safe }}*sliderd.value).toString() +"*x + "+
-           ({{ tt|safe }}*sliderm.value/(sliderb.value*sliderb.value)).toString() + "*(1-Math.exp(" +
-           (-sliderb.value).toString()+"*x)"+(-sliderb.value).toString()+"*x))"
+       let exp2 = "100 * Math.exp(-"+ ({{ gamma|safe }}+ {{ tt|safe }}*sliderd.value).toString() +"*x)"
        const yValues = [];
 
        for (var x = 0; x <= 6; x += 0.5) {
@@ -61,52 +43,10 @@
        };
        Plotly.newPlot("myChart", data, layout);
 
-       sliderb.oninput = function() {
-           outputb.innerHTML = this.value;
-           let yValuesb = []
-           let exp2 = "100 * Math.exp(-"+ (sliderd.value *{{ tt|safe }} +  {{ gamma|safe }}).toString() +"*x + "+
-           ({{ tt|safe }}*sliderm.value/(this.value*this.value)).toString() + "*(1-Math.exp(" +
-           (-this.value).toString()+"*x)"+(-this.value).toString()+"*x))"
-           for (var x = 0; x <= 6; x += 0.5) {
-               yValuesb.push(eval(exp2));
-           }
-           var data = [
-               {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter"},
-               {x:{{ t|safe }}, y: yValuesb, mode:"lines"},
-           ];
-           var layout = {
-               xaxis: {range: [0, 6], title: "Time"},
-               yaxis: {range: [0, 100], title: "Concentration"},
-               title: "C(t)"
-           };
-           Plotly.newPlot("myChart", data, layout);
-           }
-       sliderm.oninput = function() {
-           outputm.innerHTML = this.value;
-           let yValuesm = []
-           let exp2 = "100 * Math.exp(-"+ (sliderd.value * {{ tt|safe }} +  {{ gamma|safe }}).toString() +"*x + "+
-           ({{ tt|safe }}*this.value/(sliderb.value*sliderb.value)).toString() + "*(1-Math.exp(" +
-           (-sliderb.value).toString()+"*x)"+(-sliderb.value).toString()+"*x))"
-           for (var x = 0; x <= 6; x += 0.5) {
-               yValuesm.push(eval(exp2));
-           }
-           var data = [
-               {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter"},
-               {x:{{ t|safe }}, y: yValuesm, mode:"lines"},
-           ];
-           var layout = {
-               xaxis: {range: [0, 6], title: "Time"},
-               yaxis: {range: [0, 100], title: "Concentration"},
-               title: "C(t)"
-           };
-           Plotly.newPlot("myChart", data, layout);
-       }
        sliderd.oninput = function() {
            outputd.innerHTML = this.value;
            let yValuesd = []
-           let exp2 = "100 * Math.exp(-"+ (this.value *{{ tt|safe }} +  {{ gamma|safe }}).toString() +"*x + "+
-           ({{ tt|safe }}*sliderm.value/(sliderb.value*sliderb.value)).toString() + "*(1-Math.exp(" +
-           (-sliderb.value).toString()+"*x)"+(-sliderb.value).toString()+"*x))"
+           let exp2 = "100 * Math.exp(-"+ (this.value *{{ tt|safe }} +  {{ gamma|safe }}).toString() +"*x ) "
            for (var x = 0; x <= 6; x += 0.5) {
                yValuesd.push(eval(exp2));
            }
@@ -122,4 +62,5 @@
            Plotly.newPlot("myChart", data, layout);
        }
    </script>
+
 {% endblock %}
