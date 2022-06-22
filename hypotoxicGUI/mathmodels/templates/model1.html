@@ -42,8 +42,8 @@
            yValues.push(eval(exp2));
        }
        var data = [
-           {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter"},
-           {x:{{ t|safe }}, y: yValues, mode:"lines"},
+           {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter",name:"data"},
+           {x:{{ t|safe }}, y: yValues, mode:"lines",name:"model1"},
        ];
        var layout = {
            xaxis: {range: [0, 6], title: "Time"},
@@ -62,8 +62,8 @@
                yValuesb.push(eval(exp2));
            }
            var data = [
-               {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter"},
-               {x:{{ t|safe }}, y: yValuesb, mode:"lines"},
+               {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter", name:"data"},
+               {x:{{ t|safe }}, y: yValuesb, mode:"lines", name:"model1"},
            ];
            var layout = {
                xaxis: {range: [0, 6], title: "Time"},
@@ -82,8 +82,8 @@
                yValuesm.push(eval(exp2));
            }
            var data = [
-               {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter"},
-               {x:{{ t|safe }}, y: yValuesm, mode:"lines"},
+               {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter", name:"data"},
+               {x:{{ t|safe }}, y: yValuesm, mode:"lines",name:"model1"},
            ];
            var layout = {
                xaxis: {range: [0, 6], title: "Time"},

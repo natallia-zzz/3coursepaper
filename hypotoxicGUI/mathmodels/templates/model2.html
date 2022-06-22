@@ -9,7 +9,7 @@
                     </div>
                 </div>
            <div class="col-6">
-               <h2>Model3</h2>
+               <h2>Model2</h2>
                <p>test substance is toxic, metabolite is not</p>
                <h4>Initial parameters</h4>
                <p>Rate of cell natural death: {{ gamma|safe }}</p>
@@ -33,8 +33,8 @@
            yValues.push(eval(exp2));
        }
        var data = [
-           {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter"},
-           {x:{{ t|safe }}, y: yValues, mode:"lines"},
+           {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter", name:"data"},
+           {x:{{ t|safe }}, y: yValues, mode:"lines",name:"model2"},
        ];
        var layout = {
            xaxis: {range: [0, 6], title: "Time"},
@@ -51,8 +51,8 @@
                yValuesd.push(eval(exp2));
            }
            var data = [
-               {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter"},
-               {x:{{ t|safe }}, y: yValuesd, mode:"lines"},
+               {x: {{ t|safe }}, y: {{ ct|safe }}, mode:"markers", type:"scatter",name:"data"},
+               {x:{{ t|safe }}, y: yValuesd, mode:"lines",name:"model2"},
            ];
            var layout = {
                xaxis: {range: [0, 6], title: "Time"},
